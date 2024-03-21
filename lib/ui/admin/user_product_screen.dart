@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodapp/ui/shared/app_drawer.dart';
+import 'package:provider/provider.dart';
 // import 'package:provider/provider.dart';
 
 import 'edit_product_screen.dart';
@@ -12,7 +13,7 @@ class UserProductsScreen extends StatelessWidget {
   const UserProductsScreen({super.key});
 
   Future<void> _refreshProduct(BuildContext context) async {
-    // await context.read<ProductsManager>().fetchProducts();
+    await context.read<ProductsManager>().fetchProducts();
   }
 
   @override
@@ -71,7 +72,7 @@ Widget buildAddButton(BuildContext context) {
 }
 
 Widget buildUserProductListView(ProductsManager productsManager) {
-  // return Consumer<ProductsManager>(builder: (context, productsManager, child) {
+  return Consumer<ProductsManager>(builder: (context, productsManager, child) {
     return ListView.builder(
       itemCount: productsManager.itemCount,
       itemBuilder: (context, index) => Column(
@@ -84,5 +85,5 @@ Widget buildUserProductListView(ProductsManager productsManager) {
       ),
     );
   }
-  // );
-// }
+  );
+}
