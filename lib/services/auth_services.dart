@@ -46,7 +46,7 @@ class AuthService {
         final token = authToken.token;
         final uid = authToken.userId;
         final usersUrl = Uri.parse(
-            'https://bookstore-project-f0504-default-rtdb.asia-southeast1.firebasedatabase.app//users.json?auth=$token');
+            'https://testapp-ff488-default-rtdb.asia-southeast1.firebasedatabase.app/users.json?auth=$token');
         final response = await http.post(usersUrl,
             body: json.encode({
               'uid': uid,
@@ -83,11 +83,12 @@ class AuthService {
     final token = authToken.token;
     final uid = authToken.userId;
     final usersUrl = Uri.parse(
-        'https://bookstore-project-f0504-default-rtdb.asia-southeast1.firebasedatabase.app//users.json?auth=$token&orderBy="uid"&equalTo="$uid"');
+        'https://testapp-ff488-default-rtdb.asia-southeast1.firebasedatabase.app/users.json?auth=$token&orderBy="uid"&equalTo="$uid"');
 
     final response = await http.get(usersUrl);
+    print(response);
     final user = json.decode(response.body) as Map<String, dynamic>;
-
+    print(user);
     if (response.statusCode == 200) {
       return user[user.keys.first]['role'];
       return "user";

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodapp/ui/shared/app_drawer.dart';
+import 'package:provider/provider.dart';
 // import 'package:provider/provider.dart';
 
 import 'order_detail_screen.dart';
@@ -30,7 +31,7 @@ class _OrdersScreenState extends State<OrdersScreen> {
     final ordersManager = OrdersManager();
     return Scaffold(
         appBar: AppBar(
-          title: const Text('ĐƠN HÀNG'),
+          title: const Text('ĐƠN HÀNGaaa'),
         ),
         drawer: const AppDrawer(),
         body: 
@@ -38,9 +39,10 @@ class _OrdersScreenState extends State<OrdersScreen> {
         //     future: _fetchOrders,
         //     builder: (contex, snapshot) {
         //       if (snapshot.connectionState == ConnectionState.done) {
-        //         return Consumer<OrdersManager>(
-        //           builder: (ctx, ordersManager, child) {
-        //             return 
+                // return 
+                Consumer<OrdersManager>(
+                  builder: (ctx, ordersManager, child) {
+                    return 
                     ListView.builder(
                         itemCount: ordersManager.orderCount,
                         itemBuilder: (ctx, i) => GestureDetector(
@@ -53,9 +55,9 @@ class _OrdersScreenState extends State<OrdersScreen> {
                                 );
                               },
                               child:ordersManager.orderCount == 0 ? Center(child: Text("Đơn hàng trống!"),) : OrderItemCard(ordersManager.orders[i]),
-                            )));
+                            ));}));
                   }
-//                 );
+                // );
 //               }
 //               return const Center(child: CircularProgressIndicator());
 //             }));

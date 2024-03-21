@@ -23,13 +23,13 @@ class ProductsOverviewScreen extends StatefulWidget {
 }
 
 class _ProductOverviewScreenState extends State<ProductsOverviewScreen> {
-  // late Future<void> _fetchProducts;
+  late Future<void> _fetchProducts;
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   _fetchProducts = context.read<ProductsManager>().fetchProducts();
-  // }
+  @override
+  void initState() {
+    super.initState();
+    _fetchProducts = context.read<ProductsManager>().fetchProducts();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,18 +41,18 @@ class _ProductOverviewScreenState extends State<ProductsOverviewScreen> {
           ],
         ),
         drawer: const AppDrawer(),
-        body: ProductsGrid()
-        // FutureBuilder(
-        //   future: _fetchProducts,
-        //   builder: (context, snapshot) {
-        //     if (snapshot.connectionState == ConnectionState.done) {
-        //       return ProductsGrid();
-        //     }
-        //     return const Center(
-        //       child: CircularProgressIndicator(),
-        //     );
-        //   },
-        // ),
+        body:
+        FutureBuilder(
+          future: _fetchProducts,
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.done) {
+              return ProductsGrid();
+            }
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          },
+        ),
         );
   }
 

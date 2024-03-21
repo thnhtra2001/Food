@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../model/cart_item.dart';
 import '../../model/order_item.dart';
 import '../order/orders_screen.dart';
-// import '../../../services/user_service.dart';
+import '../../../services/user_service.dart';
 import 'package:provider/provider.dart';
 import '../cart/cart_manager.dart';
 import '../payment_cart/payment_cart_item.dart';
@@ -21,14 +21,15 @@ class PaymentCartScreen1 extends StatefulWidget {
 
 class _PaymentCartScreen1State extends State<PaymentCartScreen1> {
   late OrderItem _order;
+  int orderStatus = 0;
   String zpTransToken = "";
   String payResult = "Thanh toán bằng tiền mặt";
   late Future<Map<String, dynamic>> _futureFetchUserInformation;
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   _futureFetchUserInformation = UserService().fetchUserInformation();
-  // }
+  @override
+  void initState() {
+    super.initState();
+    _futureFetchUserInformation = UserService().fetchUserInformation();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -242,6 +243,7 @@ class _PaymentCartScreen1State extends State<PaymentCartScreen1> {
             address: snapshot.data['address'],
             customerId: snapshot.data['uid'],
             payResult: payResult,
+            orderStatus: orderStatus,
           );
           context.read<OrdersManager>().addOrder(_order);
           // cart.clear();

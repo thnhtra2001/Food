@@ -14,6 +14,7 @@ class OrderItem with ChangeNotifier {
   late String address;
   late String payResult;
   late String customerId;
+  late int orderStatus;
 
   int get productCount {
     return products.length;
@@ -29,6 +30,7 @@ class OrderItem with ChangeNotifier {
     required this.address,
     required this.payResult,
     required this.customerId,
+    required this.orderStatus,
     DateTime? dateTime,
   }) : dateTime = dateTime ?? DateTime.now();
 
@@ -43,6 +45,7 @@ class OrderItem with ChangeNotifier {
     String? address,
     String? payResult,
     String? customerId,
+    int? orderStatus,
   }) {
     return OrderItem(
       id: id ?? this.id,
@@ -55,6 +58,7 @@ class OrderItem with ChangeNotifier {
       address: address ?? this.address,
       payResult: payResult ?? this.payResult,
       customerId: customerId ?? this.customerId,
+      orderStatus: orderStatus ?? this.orderStatus,
     );
   }
 
@@ -81,6 +85,7 @@ class OrderItem with ChangeNotifier {
       'address': address,
       'payResult': payResult,
       'customerId': customerId,
+      'orderStatus': orderStatus,
     };
   }
 
@@ -98,6 +103,7 @@ class OrderItem with ChangeNotifier {
       address: json['address'],
       payResult: json['payResult'],
       customerId: json['customerId'],
+      orderStatus: json['orderStatus'],
     );
   }
 }

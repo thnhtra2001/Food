@@ -52,14 +52,14 @@ class UserProductListTile extends StatelessWidget {
   Widget buildDeleteButton(BuildContext context) {
     return IconButton(
       onPressed: () {
-        context.read<ProductsManager>().deleteProduct(product.id!);
-        ScaffoldMessenger.of(context)
-          ..hideCurrentMaterialBanner()
-          ..showSnackBar(const SnackBar(
-              content: Text(
-            'Sản phẩm đã xóa',
-            textAlign: TextAlign.center,
-          )));
+        // context.read<ProductsManager>().deleteProduct(product.id!);
+        // ScaffoldMessenger.of(context)
+        //   ..hideCurrentMaterialBanner()
+        //   ..showSnackBar(const SnackBar(
+        //       content: Text(
+        //     'Sản phẩm đã xóa',
+        //     textAlign: TextAlign.center,
+        //   )));
         print("da xoa");
       },
       icon: const Icon(Icons.delete),

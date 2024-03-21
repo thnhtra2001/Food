@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import '../../../model/cart_item.dart';
 // import '../../../services/user_service.dart';
 import '../shared/dialog_utils.dart';
-import '../shared/dialog_utils.dart';
 import '../cart/cart_manager.dart';
 
 class CartItemCard extends StatefulWidget {

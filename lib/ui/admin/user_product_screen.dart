@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodapp/ui/shared/app_drawer.dart';
 // import 'package:provider/provider.dart';
 
 import 'edit_product_screen.dart';
@@ -24,6 +25,7 @@ class UserProductsScreen extends StatelessWidget {
             buildAddButton(context),
           ],
         ),
+        drawer: const AppDrawer(),
         body: FutureBuilder(
             future: _refreshProduct(context),
             builder: (context, snapshot) {

@@ -7,6 +7,7 @@ import '../cart/cart_manager.dart';
 import '../cart/cart_screen.dart';
 import '../order/orders_screen.dart';
 import '../admin/user_product_screen.dart';
+import '../personal/personal_screen.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key});
@@ -26,7 +27,7 @@ class AppDrawer extends StatelessWidget {
             title: const Text('Trang cá nhân'),
             onTap: () {
               Navigator.of(context)
-                  .pushReplacementNamed(UserProductsScreen.routeName);
+                  .pushReplacementNamed(PersonalScreen.routeName);
             },
           ),
           const Divider(),
