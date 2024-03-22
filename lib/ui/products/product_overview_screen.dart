@@ -10,6 +10,7 @@ import 'package:provider/provider.dart';
 // import '../cart/cart_screen.dart';
 import 'products_grid.dart';
 import 'products_manager.dart';
+import 'search_product.dart';
 // import 'search_product.dart';
 // import 'top_right_badge.dart';
 
@@ -38,6 +39,7 @@ class _ProductOverviewScreenState extends State<ProductsOverviewScreen> {
           title: const Text('FOODAPP'),
           actions: [
             buildShoppingCartIcon(),
+            searchProduct(),
           ],
         ),
         drawer: const AppDrawer(),
@@ -65,16 +67,16 @@ class _ProductOverviewScreenState extends State<ProductsOverviewScreen> {
               Navigator.of(context).pushNamed(CartScreen.routeName);
             },
             icon: const Icon(Icons.shopping_cart)),
-        data: CartManager().productCount);
+        data: cartManager.productCount);
       }
     ); 
   }
-  // Widget searchProduct() {
-  //   return IconButton(
-  //       onPressed: () {
-  //         Navigator.of(context).pushNamed(SearchScreen.routeName);
-  //         print("hello");
-  //       },
-  //       icon: const Icon(Icons.search));
-  // }
+  Widget searchProduct() {
+    return IconButton(
+        onPressed: () {
+          Navigator.of(context).pushNamed(SearchScreen.routeName);
+          print("hello");
+        },
+        icon: const Icon(Icons.search));
+  }
 }

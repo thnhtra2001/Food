@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-// import 'package:provider/provider.dart';
+import 'package:provider/provider.dart';
 
-// import '../../models/cart_item.dart';
+import '../../model/cart_item.dart';
 
-// import '../cart/cart_screen.dart';
-// import '../payment_cart/payment_cart_screen.dart';
+import '../cart/cart_screen.dart';
+import '../payment_cart/payment_cart_screen.dart';
 
-// import '../../models/product.dart';
 import '../../model/product.dart';
-// import '../payment_cart/payment_cart_screen.dart';
-// import '../cart/cart_manager.dart';
+import '../../model/product.dart';
+import '../payment_cart/payment_cart_screen.dart';
+import '../cart/cart_manager.dart';
 
 class ProductDetailScreen extends StatelessWidget {
   static const routeName = '/product-detail';
@@ -29,7 +29,7 @@ class ProductDetailScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Column(
-            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               const SizedBox(
                 height: 20,
@@ -211,35 +211,35 @@ class ProductDetailScreen extends StatelessWidget {
               //   ),
               // ),
               // const SizedBox(height: 20),
-              // buildShoppingCartIcon(),
-              // Container(
-              //   width: 200,
-              //   height: 40,
-              //   child: ElevatedButton(
-              //     onPressed: () {
-              //       final cart = context.read<CartManager>();
-              //       // cart.addCart(product.id, product.title, product.price, product.imageUrl, 1);
-              //       cart.addItem(product);
-              //       Navigator.of(context)
-              //           .pushNamed(PaymentCartScreen1.routeName);
-              //       //   print(product.title);
-              //       //   Navigator.of(context).pushNamed(PaymentDetailScreen.routeName,
-              //       //       arguments: Product(
-              //       //           title: product.title,
-              //       //           description: product.description,
-              //       //           price: product.price,
-              //       //           imageUrl: product.imageUrl)
-              //       //           );
-              //     },
-              //     style: ElevatedButton.styleFrom(
-              //       backgroundColor: Colors.red,
-              //     ),
-              //     child: const Text('Đặt hàng',
-              //         style: TextStyle(
-              //           color: Colors.white,
-              //         )),
-              //   ),
-              // ),
+              buildShoppingCartIcon(),
+              Container(
+                width: 200,
+                height: 40,
+                child: ElevatedButton(
+                  onPressed: () {
+                    final cart = context.read<CartManager>();
+                    // cart.addCart(product.id, product.title, product.price, product.imageUrl, 1);
+                    cart.addItem(product);
+                    Navigator.of(context)
+                        .pushNamed(PaymentCartScreen1.routeName);
+                    //   print(product.title);
+                    //   Navigator.of(context).pushNamed(PaymentDetailScreen.routeName,
+                    //       arguments: Product(
+                    //           title: product.title,
+                    //           description: product.description,
+                    //           price: product.price,
+                    //           imageUrl: product.imageUrl)
+                    //           );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.red,
+                  ),
+                  child: const Text('Đặt hàng',
+                      style: TextStyle(
+                        color: Colors.white,
+                      )),
+                ),
+              ),
               const SizedBox(height: 10),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -264,46 +264,46 @@ class ProductDetailScreen extends StatelessWidget {
     );
   }
 
-  // Widget buildShoppingCartIcon() {
-  //   return Consumer<CartManager>(
-  //     builder: (context, cartManager, child) {
-  //       return Container(
-  //         child: Column(
-  //           children: [
-  //             Row(
-  //               children: [
-  //                 const Text(
-  //                   'Thêm:',
-  //                   style: TextStyle(fontSize: 18),
-  //                 ),
-  //                 IconButton(
-  //                     onPressed: () {
-  //                       //them vao cart
-  //                       final cart = context.read<CartManager>();
-  //                       cart.addItem(product);
-  //                       // cart.addCart(product.id, product.title, product.price, product.imageUrl, 1);
-  //                       //thong bao
+  Widget buildShoppingCartIcon() {
+    return Consumer<CartManager>(
+      builder: (context, cartManager, child) {
+        return Container(
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  const Text(
+                    'Thêm:',
+                    style: TextStyle(fontSize: 18),
+                  ),
+                  IconButton(
+                      onPressed: () {
+                        //them vao cart
+                        final cart = context.read<CartManager>();
+                        cart.addItem(product);
+                        // cart.addCart(product.id, product.title, product.price, product.imageUrl, 1);
+                        //thong bao
 
-  //                       ScaffoldMessenger.of(context)
-  //                         ..hideCurrentSnackBar()
-  //                         ..showSnackBar(SnackBar(
-  //                           content: const Text('Đã thêm vào giỏ hàng!'),
-  //                           duration: const Duration(seconds: 2),
-  //                           action: SnackBarAction(
-  //                             label: 'Xóa',
-  //                             onPressed: () {
-  //                               cart.removeSingleItem(product.id!);
-  //                             },
-  //                           ),
-  //                         ));
-  //                     },
-  //                     icon: const Icon(Icons.shopping_cart)),
-  //               ],
-  //             )
-  //           ],
-  //         ),
-  //       );
-  //     },
-  //   );
-  // }
+                        ScaffoldMessenger.of(context)
+                          ..hideCurrentSnackBar()
+                          ..showSnackBar(SnackBar(
+                            content: const Text('Đã thêm vào giỏ hàng!'),
+                            duration: const Duration(seconds: 2),
+                            action: SnackBarAction(
+                              label: 'Xóa',
+                              onPressed: () {
+                                cart.removeSingleItem(product.id!);
+                              },
+                            ),
+                          ));
+                      },
+                      icon: const Icon(Icons.shopping_cart)),
+                ],
+              )
+            ],
+          ),
+        );
+      },
+    );
+  }
 }

@@ -16,17 +16,7 @@ import 'package:foodapp/ui/splash_screen.dart';
 import 'package:provider/provider.dart';
 
 import 'ui/personal/personal_screen.dart';
-// import 'package:flutter_dotenv/flutter_dotenv.dart';
-
-// import 'ui/products/products_manager.dart';
-// import 'ui/products/product_detail_screen.dart';
-// // import 'ui/products/product_overview_screen.dart';
-// import 'ui/products/product_overview_screen.dart';
-// import 'ui/products/user_products_screen.dart';
-// import 'ui/cart/cart_screen.dart';
-// import 'ui/orders/orders_screen.dart';
-// import 'ui/screens.dart';
-// import 'package:provider/provider.dart';
+import 'ui/products/search_product.dart';
 
 Future<void> main() async {
   await dotenv.load();
@@ -43,14 +33,6 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(
             create: (ctx) => AuthManager(),
           ),
-          // ChangeNotifierProxyProvider<AuthManager, ProductsManager>(
-          //     create: (ctx) => ProductsManager(),
-          //     update: (ctx, authManager, productsManager) {
-          //       // khi authManager co bao hieu thay doi thi doc lai authToken
-          //       // cho productManager
-          //       productsManager!.authToken = authManager.authToken;
-          //       return productsManager;
-          //     }),
           ChangeNotifierProvider(
             create: (ctx) => CartManager(),
           ),
@@ -87,6 +69,7 @@ class MyApp extends StatelessWidget {
                     },
                   ),
             routes: {
+              SearchScreen.routeName: (context) => const SearchScreen(),
               CartScreen.routeName: (context) => const CartScreen(),
               PersonalScreen.routeName:(context) => const PersonalScreen(),
               PaymentCartScreen1.routeName: (context) =>

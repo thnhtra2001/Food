@@ -18,7 +18,7 @@ class ProductsManager with ChangeNotifier {
     //   coutry: 'vietnammmm',
     // ),
   ];
-  // List<Product> _display_product = [];
+  List<Product> _display_product = [];
 
   int get itemCount {
     return _items.length;
@@ -60,17 +60,18 @@ class ProductsManager with ChangeNotifier {
       }
     }
   }
-      Future<void> deleteProduct(String id) async {
-      final index = _items.indexWhere((item) => item.id == id);
-      Product? existingProduct = _items[index];
-      _items.removeAt(index);
-      notifyListeners();
 
-      if (!await _productsService.deleteProduct(id)) {
-        _items.insert(index, existingProduct);
-        notifyListeners();
-      }
+  Future<void> deleteProduct(String id) async {
+    final index = _items.indexWhere((item) => item.id == id);
+    Product? existingProduct = _items[index];
+    _items.removeAt(index);
+    notifyListeners();
+
+    if (!await _productsService.deleteProduct(id)) {
+      _items.insert(index, existingProduct);
+      notifyListeners();
     }
+  }
 //   Future<void> toggleFavoriteStatus(Product product) async {
 //     final savedStatus = product.isFavorite;
 //     product.isFavorite = !savedStatus;
@@ -81,17 +82,19 @@ class ProductsManager with ChangeNotifier {
 //   }
 
 //   ///////////////////////////////////////
-//   List<Product> updateList(String value) {
-//     _display_product = _items
-//         .where((element) =>
-//             element.title.toLowerCase().contains(value.toLowerCase()))
-//         .toList();
-//     return _display_product;
-//   }
+  List<Product> updateList(String value) {
+    _display_product = _items
+        .where((element) =>
+            element.title.toLowerCase().contains(value.toLowerCase()))
+        .toList();
+    return _display_product;
+  }
 
-//   int get display_product_Count {
-//     return _display_product.length;
-//   }
-//   List<Product> get display_product {
-//     return [..._display_product];
+  int get display_product_Count {
+    return _display_product.length;
+  }
+
+  List<Product> get display_product {
+    return [..._display_product];
+  }
 }
