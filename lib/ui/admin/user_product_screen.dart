@@ -3,7 +3,9 @@ import 'package:foodapp/ui/shared/app_drawer.dart';
 import 'package:provider/provider.dart';
 // import 'package:provider/provider.dart';
 
+import '../shared/app_drawer_admin.dart';
 import 'edit_product_screen.dart';
+import 'search_admin.dart';
 import 'user_product_list_title.dart';
 
 import '../products/products_manager.dart';
@@ -23,10 +25,11 @@ class UserProductsScreen extends StatelessWidget {
         appBar: AppBar(
           title: const Text('ADMIN'),
           actions: [
+            searchProduct(context),
             buildAddButton(context),
           ],
         ),
-        drawer: const AppDrawer(),
+        drawer: const AdminAppDrawer(),
         body: FutureBuilder(
             future: _refreshProduct(context),
             builder: (context, snapshot) {
@@ -70,7 +73,13 @@ Widget buildAddButton(BuildContext context) {
       },
       icon: const Icon(Icons.add));
 }
-
+  Widget searchProduct(context) {
+    return IconButton(
+        onPressed: () {
+          Navigator.of(context).pushNamed(SearchAdminScreen.routeName);
+        },
+        icon: const Icon(Icons.search));
+  }
 Widget buildUserProductListView(ProductsManager productsManager) {
   return Consumer<ProductsManager>(builder: (context, productsManager, child) {
     return ListView.builder(

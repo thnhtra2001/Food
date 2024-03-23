@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:foodapp/ui/auth/auth_manager.dart';
 import 'package:provider/provider.dart';
-// import 'package:provider/provider.dart';
+import 'package:provider/provider.dart';
 
 import '../cart/cart_manager.dart';
 import '../cart/cart_screen.dart';
 import '../order/orders_screen.dart';
 import '../admin/user_product_screen.dart';
+import '../orders1_admin/order_screen.dart';
+import '../orders2_admin/order_screen.dart';
+import '../orders3_admin/order_screen.dart';
+import '../orders_admin/order_screen.dart';
 import '../personal/personal_screen.dart';
 
 class AdminAppDrawer extends StatelessWidget {
@@ -18,7 +22,7 @@ class AdminAppDrawer extends StatelessWidget {
       child: Column(
         children: <Widget>[
           AppBar(
-            title: const Text('Người dùng'),
+            title: const Text('ADMIN'),
             automaticallyImplyLeading: false,
           ),
           const Divider(),
@@ -31,13 +35,50 @@ class AdminAppDrawer extends StatelessWidget {
             },
           ),
           const Divider(),
-          // ListTile(
-          //   leading: const Icon(Icons.home),
-          //   title: const Text('Trang chủ'),
-          //   onTap: () {
-          //     Navigator.of(context).pushReplacementNamed('/');
-          //   },
-          // ),
+          ListTile(
+            leading: const Icon(Icons.home),
+            title: const Text('Trang chủ'),
+            onTap: () {
+              Navigator.of(context)
+                  .pushReplacementNamed(UserProductsScreen.routeName);
+            },
+          ),
+          const Divider(),
+          ListTile(
+            leading: const Icon(Icons.check),
+            title: const Text('Xác nhận đơn hàng'),
+            onTap: () {
+              Navigator.of(context)
+                  .pushReplacementNamed(OrdersScreenAdmin.routeName);
+            },
+          ),
+          const Divider(),
+          ListTile(
+            leading: const Icon(Icons.plus_one),
+            title: const Text('Đơn đã đặt'),
+            onTap: () {
+              Navigator.of(context)
+                  .pushReplacementNamed(OrdersScreenAdmin1.routeName);
+            },
+          ),
+          const Divider(),
+          ListTile(
+            leading: const Icon(Icons.local_shipping_outlined),
+            title: const Text('Đơn đang giao'),
+            onTap: () {
+              Navigator.of(context)
+                  .pushReplacementNamed(OrdersScreenAdmin2.routeName);
+            },
+          ),
+                    const Divider(),
+          ListTile(
+            leading: const Icon(Icons.cancel_presentation),
+            title: const Text('Đơn đã hủy'),
+            onTap: () {
+              Navigator.of(context)
+                  .pushReplacementNamed(OrdersScreenAdmin3.routeName);
+            },
+          ),
           // const Divider(),
           // // Consumer<CartManager>(
           // //   builder: (context, cartManager, child) {

@@ -93,7 +93,7 @@ class ProductDetailScreen extends StatelessWidget {
                                         '${product.author}',
                                         overflow: TextOverflow.ellipsis,
                                         style: const TextStyle(
-                                          color: Colors.grey,
+                                          color: Colors.pink,
                                           fontSize: 18,
                                         ),
                                       ),
@@ -111,7 +111,7 @@ class ProductDetailScreen extends StatelessWidget {
                                       Text(
                                         '${product.coutry}',
                                         style: const TextStyle(
-                                          color: Colors.grey,
+                                          color: Colors.pink,
                                           fontSize: 18,
                                         ),
                                       ),
@@ -130,7 +130,7 @@ class ProductDetailScreen extends StatelessWidget {
                                       Text(
                                         '${product.category}',
                                         style: const TextStyle(
-                                          color: Colors.grey,
+                                          color: Colors.pink,
                                           fontSize: 18,
                                         ),
                                       ),
@@ -148,7 +148,7 @@ class ProductDetailScreen extends StatelessWidget {
                                       Text(
                                         '${product.price}',
                                         style: const TextStyle(
-                                          color: Colors.grey,
+                                          color: Colors.pink,
                                           fontSize: 18,
                                         ),
                                       ),
@@ -213,8 +213,8 @@ class ProductDetailScreen extends StatelessWidget {
               // const SizedBox(height: 20),
               buildShoppingCartIcon(),
               Container(
-                width: 200,
-                height: 40,
+                width: 300,
+                height: 50,
                 child: ElevatedButton(
                   onPressed: () {
                     final cart = context.read<CartManager>();
@@ -248,7 +248,7 @@ class ProductDetailScreen extends StatelessWidget {
                   children: [
                     const Text(
                       'Mô tả',
-                      style: TextStyle(color: Colors.grey, fontSize: 20),
+                      style: TextStyle(color: Colors.pink, fontSize: 20),
                     ),
                     Text(
                       product.description,

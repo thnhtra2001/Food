@@ -14,7 +14,15 @@ import 'package:foodapp/ui/products/product_overview_screen.dart';
 import 'package:foodapp/ui/products/products_manager.dart';
 import 'package:foodapp/ui/splash_screen.dart';
 import 'package:provider/provider.dart';
-
+import 'ui/admin/search_admin.dart';
+import 'ui/orders1_admin/order_manager.dart';
+import 'ui/orders1_admin/order_screen.dart';
+import 'ui/orders2_admin/order_manager.dart';
+import 'ui/orders2_admin/order_screen.dart';
+import 'ui/orders3_admin/order_manager.dart';
+import 'ui/orders3_admin/order_screen.dart';
+import 'ui/orders_admin/order_manager.dart';
+import 'ui/orders_admin/order_screen.dart';
 import 'ui/personal/personal_screen.dart';
 import 'ui/products/search_product.dart';
 
@@ -40,6 +48,18 @@ class MyApp extends StatelessWidget {
             create: (ctx) => OrdersManager(),
           ),
           ChangeNotifierProvider(
+            create: (ctx) => OrdersManagerAdmin(),
+          ),
+          ChangeNotifierProvider(
+            create: (ctx) => OrdersManagerAdmin1(),
+          ),
+          ChangeNotifierProvider(
+            create: (ctx) => OrdersManagerAdmin2(),
+          ),
+          ChangeNotifierProvider(
+            create: (ctx) => OrdersManagerAdmin3(),
+          ),
+          ChangeNotifierProvider(
             create: (ctx) => ProductsManager(),
           ),
         ],
@@ -58,8 +78,7 @@ class MyApp extends StatelessWidget {
             home: authManager.isAuth
                 ? (context.read<AuthManager>().authToken?.role == "admin"
                     ? const UserProductsScreen()
-                    : const ProductsOverviewScreen()
-                    )
+                    : const ProductsOverviewScreen())
                 : FutureBuilder(
                     future: authManager.tryAutoLogin(),
                     builder: (context, snapshot) {
@@ -69,12 +88,22 @@ class MyApp extends StatelessWidget {
                     },
                   ),
             routes: {
+              SearchAdminScreen.routeName: (context) =>
+                  const SearchAdminScreen(),
               SearchScreen.routeName: (context) => const SearchScreen(),
               CartScreen.routeName: (context) => const CartScreen(),
-              PersonalScreen.routeName:(context) => const PersonalScreen(),
+              PersonalScreen.routeName: (context) => const PersonalScreen(),
               PaymentCartScreen1.routeName: (context) =>
                   const PaymentCartScreen1(),
               OrdersScreen.routeName: (context) => const OrdersScreen(),
+              OrdersScreenAdmin.routeName: (context) =>
+                  const OrdersScreenAdmin(),
+              OrdersScreenAdmin1.routeName: (context) =>
+                  const OrdersScreenAdmin1(),
+              OrdersScreenAdmin2.routeName: (context) =>
+                  const OrdersScreenAdmin2(),
+              OrdersScreenAdmin3.routeName: (context) =>
+                  const OrdersScreenAdmin3(),
               UserProductsScreen.routeName: (context) =>
                   const UserProductsScreen(),
             },
