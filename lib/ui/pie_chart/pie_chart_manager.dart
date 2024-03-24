@@ -1,7 +1,8 @@
 import 'package:flutter/widgets.dart';
-import 'package:shopcaycanh/models/order_item.dart';
 import 'package:flutter/foundation.dart';
-import 'package:shopcaycanh/services/orders_admin_service.dart';
+
+import '../../model/order_item.dart';
+import '../../services/orders_admin_service.dart';
 
 class PieChartManager with ChangeNotifier {
   final OrderServiceAdmin _orderService = OrderServiceAdmin();

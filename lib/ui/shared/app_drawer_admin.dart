@@ -12,6 +12,7 @@ import '../orders2_admin/order_screen.dart';
 import '../orders3_admin/order_screen.dart';
 import '../orders_admin/order_screen.dart';
 import '../personal/personal_screen.dart';
+import '../pie_chart/pie_chart.dart';
 
 class AdminAppDrawer extends StatelessWidget {
   const AdminAppDrawer({super.key});
@@ -70,13 +71,22 @@ class AdminAppDrawer extends StatelessWidget {
                   .pushReplacementNamed(OrdersScreenAdmin2.routeName);
             },
           ),
-                    const Divider(),
+          const Divider(),
           ListTile(
             leading: const Icon(Icons.cancel_presentation),
             title: const Text('Đơn đã hủy'),
             onTap: () {
               Navigator.of(context)
                   .pushReplacementNamed(OrdersScreenAdmin3.routeName);
+            },
+          ),
+          const Divider(),
+          ListTile(
+            leading: const Icon(Icons.pie_chart),
+            title: const Text('Thống kê đơn hàng'),
+            onTap: () {
+              Navigator.of(context)
+                  .pushReplacementNamed(PieChartScreen.routeName);
             },
           ),
           // const Divider(),

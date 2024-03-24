@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pie_chart/pie_chart.dart';
 import 'package:provider/provider.dart';
-import 'package:shopcaycanh/ui/orders3_admin/order_manager.dart';
-import 'package:shopcaycanh/ui/pie_chart/pie_chart_manager.dart';
-import 'package:shopcaycanh/ui/shared/admin_app_drawer.dart';
-
 import '../orders1_admin/order_manager.dart';
+import '../shared/app_drawer_admin.dart';
+import 'pie_chart_manager.dart';
 
 class PieChartScreen extends StatefulWidget {
   static const routeName = '/pieChart';

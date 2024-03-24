@@ -24,6 +24,8 @@ import 'ui/orders3_admin/order_screen.dart';
 import 'ui/orders_admin/order_manager.dart';
 import 'ui/orders_admin/order_screen.dart';
 import 'ui/personal/personal_screen.dart';
+import 'ui/pie_chart/pie_chart.dart';
+import 'ui/pie_chart/pie_chart_manager.dart';
 import 'ui/products/search_product.dart';
 
 Future<void> main() async {
@@ -62,6 +64,9 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(
             create: (ctx) => ProductsManager(),
           ),
+          ChangeNotifierProvider(
+            create: (ctx) => PieChartManager(),
+          ),
         ],
         child: Consumer<AuthManager>(builder: (context, authManager, child) {
           return MaterialApp(
@@ -88,6 +93,7 @@ class MyApp extends StatelessWidget {
                     },
                   ),
             routes: {
+              PieChartScreen.routeName: (context) => PieChartScreen(),
               SearchAdminScreen.routeName: (context) =>
                   const SearchAdminScreen(),
               SearchScreen.routeName: (context) => const SearchScreen(),
