@@ -6,6 +6,7 @@ import 'cart_item.dart';
 class OrderItem with ChangeNotifier {
   late String? id;
   late double amount;
+  late double amount0;
   late List<CartItem> products;
   late DateTime dateTime;
   late int totalQuantity;
@@ -23,6 +24,7 @@ class OrderItem with ChangeNotifier {
   OrderItem({
     this.id,
     required this.amount,
+    required this.amount0,
     required this.products,
     required this.totalQuantity,
     required this.name,
@@ -50,6 +52,7 @@ class OrderItem with ChangeNotifier {
     return OrderItem(
       id: id ?? this.id,
       amount: amount ?? this.amount,
+      amount0: amount ?? this.amount0,
       products: products ?? this.products,
       dateTime: dateTime ?? this.dateTime,
       totalQuantity: totalQuantity ?? this.totalQuantity,
@@ -77,6 +80,7 @@ class OrderItem with ChangeNotifier {
   Map toJson() {
     return {
       'amount': amount,
+      'amount0': amount0,
       'products': products.map((item) => item.toJson()).toList(),
       'dateTime': dateTime.toString(),
       'totalQuantity': totalQuantity,
@@ -93,6 +97,7 @@ class OrderItem with ChangeNotifier {
     return OrderItem(
       id: json['id'],
       amount: json['amount'],
+      amount0: json['amount0'],
       products: (json['products'] as List<dynamic>)
           .map((item) => CartItem.fromJson(item))
           .toList(),

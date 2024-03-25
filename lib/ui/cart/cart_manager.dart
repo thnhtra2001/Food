@@ -16,7 +16,13 @@ class CartManager with ChangeNotifier {
   Iterable<MapEntry<String, CartItem>> get productEntries {
     return {..._items}.entries;
   }
-
+  double get totalAmount0 {
+    var total = 0.0;
+    _items.forEach((key, cartItem) {
+      total += cartItem.price0 * cartItem.quantity;
+    });
+    return total;
+  }
   double get totalAmount {
     var total = 0.0;
     _items.forEach((key, cartItem) {

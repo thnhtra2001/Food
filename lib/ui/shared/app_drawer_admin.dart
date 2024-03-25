@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodapp/ui/auth/auth_manager.dart';
 import 'package:provider/provider.dart';
-import 'package:provider/provider.dart';
-
-import '../cart/cart_manager.dart';
-import '../cart/cart_screen.dart';
-import '../order/orders_screen.dart';
+import '../filter_order_admin/filter_order_admin.dart';
 import '../admin/user_product_screen.dart';
 import '../orders1_admin/order_screen.dart';
 import '../orders2_admin/order_screen.dart';
@@ -89,56 +85,20 @@ class AdminAppDrawer extends StatelessWidget {
                   .pushReplacementNamed(PieChartScreen.routeName);
             },
           ),
-          // const Divider(),
-          // // Consumer<CartManager>(
-          // //   builder: (context, cartManager, child) {
-          // //     return TopRightBadge(
-          // //       data: cartManager.productCount,
-          // //       child: Row(
-          // //         children: [
-          // //           IconButton(
-          // //               onPressed: () {
-          // //                 Navigator.of(context).pushNamed(CartScreen.routeName);
-          // //               },
-          // //               icon: const Icon(Icons.shopping_cart)),
-
-          // //           Text('Gio hang')
-          // //         ],
-          // //       ),
-          // //     );
-          // //   },
-          // // ),
-          // ListTile(
-          //   leading: const Icon(Icons.shopping_cart),
-          //   title: const Text('Giỏ hàng'),
-          //   onTap: () {
-          //     Navigator.of(context).pushReplacementNamed(CartScreen.routeName);
-          //   },
-          // ),
-          // const Divider(),
-          // ListTile(
-          //     leading: const Icon(Icons.payment),
-          //     title: const Text('Đơn đã đặt'),
-          //     onTap: () {
-          //       Navigator.of(context)
-          //           .pushReplacementNamed(OrdersScreen.routeName);
-          //     }),
-          // // const Divider(),
-          // // ListTile(
-          // //     leading: const Icon(Icons.message_sharp),
-          // //     title: const Text('ChatAI'),
-          // //     onTap: () {
-          // //       Navigator.of(context)
-          // //           .pushReplacementNamed(ChatScreen.routeName);
-          // //     }),
+          const Divider(),
+          ListTile(
+            leading: const Icon(Icons.headphones),
+            title: const Text('Thống kê doanh thu'),
+            onTap: () {
+              Navigator.of(context)
+                  .pushReplacementNamed(FilterOrderAdmin.routeName);
+            },
+          ),
           const Divider(),
           ListTile(
             leading: const Icon(Icons.exit_to_app),
             title: const Text('Đăng xuất'),
             onTap: () {
-              // Navigator.of(context)
-              //   ..pop()
-              //   ..pushReplacementNamed('/');
               context.read<AuthManager>().logout();
             },
           )

@@ -15,6 +15,8 @@ import 'package:foodapp/ui/products/products_manager.dart';
 import 'package:foodapp/ui/splash_screen.dart';
 import 'package:provider/provider.dart';
 import 'ui/admin/search_admin.dart';
+import 'ui/filter_order_admin/filter_admin_manager.dart';
+import 'ui/filter_order_admin/filter_order_admin.dart';
 import 'ui/orders1_admin/order_manager.dart';
 import 'ui/orders1_admin/order_screen.dart';
 import 'ui/orders2_admin/order_manager.dart';
@@ -67,6 +69,9 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(
             create: (ctx) => PieChartManager(),
           ),
+          ChangeNotifierProvider(
+            create: (ctx) => FilterOrderAdminManager(),
+          ),
         ],
         child: Consumer<AuthManager>(builder: (context, authManager, child) {
           return MaterialApp(
@@ -93,6 +98,7 @@ class MyApp extends StatelessWidget {
                     },
                   ),
             routes: {
+              FilterOrderAdmin.routeName:(context) => const FilterOrderAdmin(),
               PieChartScreen.routeName: (context) => PieChartScreen(),
               SearchAdminScreen.routeName: (context) =>
                   const SearchAdminScreen(),

@@ -236,6 +236,7 @@ class _PaymentCartScreen1State extends State<PaymentCartScreen1> {
               });
           _order = OrderItem(
             amount: cart.totalAmount,
+            amount0: cart.totalAmount0,
             products: cart.products,
             totalQuantity: cart.totalQuantity,
             name: snapshot.data['name'],
