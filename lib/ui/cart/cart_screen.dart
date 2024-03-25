@@ -21,7 +21,7 @@ class CartScreen extends StatelessWidget {
     // final cart = CartManager();
     return Scaffold(
       appBar: AppBar(
-        title: const Text('GIỎ HÀNG'),
+        title: const Text('Giỏ hàng'),
       ),
       drawer: const AppDrawer(),
       body: Column(

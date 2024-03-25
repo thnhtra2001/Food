@@ -208,7 +208,7 @@ class _PaymentCartScreen1State extends State<PaymentCartScreen1> {
         child: Column(
           children: [
             CustomRowText(
-              title: 'Tổng số lượng',
+              title: 'Tổng số lượng món',
               value: '${cart.totalQuantity}',
             ),
             CustomRowText(

@@ -23,7 +23,7 @@ class UserProductsScreen extends StatelessWidget {
     final productsManager = ProductsManager();
     return Scaffold(
         appBar: AppBar(
-          title: const Text('ADMIN'),
+          title: const Text('Admin'),
           actions: [
             searchProduct(context),
             buildAddButton(context),

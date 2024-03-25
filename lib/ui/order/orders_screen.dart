@@ -31,7 +31,7 @@ class _OrdersScreenState extends State<OrdersScreen> {
     final ordersManager = OrdersManager();
     return Scaffold(
         appBar: AppBar(
-          title: const Text('ĐƠN HÀNG'),
+          title: const Text('Đơn hàng'),
         ),
         drawer: const AppDrawer(),
         body: FutureBuilder(

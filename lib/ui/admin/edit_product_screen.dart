@@ -106,7 +106,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Edit product'),
+        title: const Text('Chỉnh sửa món'),
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.save),
@@ -142,7 +142,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
   TextFormField buildTitleField() {
     return TextFormField(
       initialValue: _editedProduct.title,
-      decoration: const InputDecoration(labelText: 'Tên sách'),
+      decoration: const InputDecoration(labelText: 'Tên món'),
       textInputAction: TextInputAction.next,
       autofocus: true,
       validator: (value) {
@@ -160,7 +160,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
   TextFormField buildCategoryField() {
     return TextFormField(
       initialValue: _editedProduct.category,
-      decoration: const InputDecoration(labelText: 'Thể loại'),
+      decoration: const InputDecoration(labelText: 'Thể loại món'),
       textInputAction: TextInputAction.next,
       autofocus: true,
       validator: (value) {
@@ -178,7 +178,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
   TextFormField buildAuthorField() {
     return TextFormField(
       initialValue: _editedProduct.author,
-      decoration: const InputDecoration(labelText: 'Tác giả'),
+      decoration: const InputDecoration(labelText: 'Người làm'),
       textInputAction: TextInputAction.next,
       autofocus: true,
       validator: (value) {
@@ -196,7 +196,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
   TextFormField buildCoutryField() {
     return TextFormField(
       initialValue: _editedProduct.coutry,
-      decoration: const InputDecoration(labelText: 'Quốc gia'),
+      decoration: const InputDecoration(labelText: 'Quốc gia món'),
       textInputAction: TextInputAction.next,
       autofocus: true,
       validator: (value) {
@@ -214,7 +214,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
   TextFormField buildPrice0Field() {
     return TextFormField(
       initialValue: _editedProduct.price0.toString(),
-      decoration: const InputDecoration(labelText: 'Giá goc'),
+      decoration: const InputDecoration(labelText: 'Giá gốc'),
       textInputAction: TextInputAction.next,
       keyboardType: TextInputType.number,
       validator: (value) {
@@ -262,7 +262,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
   TextFormField buildDescriptionField() {
     return TextFormField(
       initialValue: _editedProduct.description,
-      decoration: const InputDecoration(labelText: 'Mô tả'),
+      decoration: const InputDecoration(labelText: 'Mô tả món ăn'),
       maxLines: 3,
       keyboardType: TextInputType.multiline,
       validator: (value) {
@@ -315,7 +315,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
 
   TextFormField buildImageURLField() {
     return TextFormField(
-      decoration: const InputDecoration(labelText: 'Nhập URL sách'),
+      decoration: const InputDecoration(labelText: 'Nhập URL món'),
       keyboardType: TextInputType.url,
       textInputAction: TextInputAction.done,
       controller: _imageUrlController,

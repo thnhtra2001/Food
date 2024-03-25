@@ -36,7 +36,7 @@ class _ProductOverviewScreenState extends State<ProductsOverviewScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('FOODAPP'),
+          title: const Text('FOOD APP'),
           actions: [
             buildShoppingCartIcon(),
             searchProduct(),

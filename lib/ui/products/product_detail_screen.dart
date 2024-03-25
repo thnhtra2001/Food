@@ -1,15 +1,7 @@
 import 'package:flutter/material.dart';
-
 import 'package:provider/provider.dart';
-
-import '../../model/cart_item.dart';
-
-import '../cart/cart_screen.dart';
 import '../payment_cart/payment_cart_screen.dart';
-
 import '../../model/product.dart';
-import '../../model/product.dart';
-import '../payment_cart/payment_cart_screen.dart';
 import '../cart/cart_manager.dart';
 
 class ProductDetailScreen extends StatelessWidget {
@@ -40,7 +32,7 @@ class ProductDetailScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // const SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       SizedBox(
                         height: 300,
                         width: 200,
@@ -65,7 +57,7 @@ class ProductDetailScreen extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     children: [
                                       const Text(
-                                        'Tên sách',
+                                        'Tên món',
                                         style: TextStyle(
                                             color: Colors.black, fontSize: 20),
                                       ),
@@ -122,7 +114,7 @@ class ProductDetailScreen extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     children: [
                                       const Text(
-                                        'Thể loại',
+                                        'Thể loại món',
                                         overflow: TextOverflow.ellipsis,
                                         style: TextStyle(
                                             color: Colors.black, fontSize: 20),
@@ -154,7 +146,7 @@ class ProductDetailScreen extends StatelessWidget {
                                       ),
                                     ],
                                   ),
-                                  // buildShoppingCartIcon(),
+                                  buildShoppingCartIcon(),
                                 ],
                               ),
                             ),
@@ -165,53 +157,7 @@ class ProductDetailScreen extends StatelessWidget {
                   ),
                 ]),
               ),
-              // SizedBox(
-              //   height: 300,
-              //   width: double.infinity,
-              //   child: Image.network(
-              //     product.imageUrl,
-              //     fit: BoxFit.cover,
-              //   ),
-              // ),
-              // const SizedBox(height: 10),
-              // Text(
-              //   '${product.title}',
-              //   style: const TextStyle(
-              //     color: Colors.red,
-              //     fontStyle: FontStyle.italic,
-              //     fontSize: 30,
-              //   ),
-              // ),
-              // Text(
-              //   '${product.owner}',
-              //   style: const TextStyle(
-              //     color: Colors.black,
-              //     fontSize: 20,
-              //   ),
-              // ),
-              // Text(
-              //   '${product.origin}',
-              //   style: const TextStyle(
-              //     color: Colors.black,
-              //     fontSize: 20,
-              //   ),
-              // ),
-              // Text(
-              //   '${product.status}',
-              //   style: const TextStyle(
-              //     color: Colors.black,
-              //     fontSize: 20,
-              //   ),
-              // ),
-              // Text(
-              //   '${product.price}',
-              //   style: const TextStyle(
-              //     color: Colors.grey,
-              //     fontSize: 20,
-              //   ),
-              // ),
-              // const SizedBox(height: 20),
-              buildShoppingCartIcon(),
+              // buildShoppingCartIcon(),
               Container(
                 width: 300,
                 height: 50,
@@ -222,14 +168,6 @@ class ProductDetailScreen extends StatelessWidget {
                     cart.addItem(product);
                     Navigator.of(context)
                         .pushNamed(PaymentCartScreen1.routeName);
-                    //   print(product.title);
-                    //   Navigator.of(context).pushNamed(PaymentDetailScreen.routeName,
-                    //       arguments: Product(
-                    //           title: product.title,
-                    //           description: product.description,
-                    //           price: product.price,
-                    //           imageUrl: product.imageUrl)
-                    //           );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.red,
